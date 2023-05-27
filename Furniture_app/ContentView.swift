@@ -19,6 +19,9 @@ struct ContentView: View {
                 TagLineView()
                     .padding()
                 
+                HStack {
+                    .TextField()
+                }
                 
             }
         }

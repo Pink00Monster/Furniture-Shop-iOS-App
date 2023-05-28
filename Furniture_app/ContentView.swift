@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var search: String = ""
+    
     var body: some View {
         ZStack {
             Color("Bg")
@@ -20,8 +23,16 @@ struct ContentView: View {
                     .padding()
                 
                 HStack {
-                    .TextField()
+                    HStack {
+                        Image("Search")
+                            .padding(.trailing, 8)
+                        TextField("Search Furniture", text: $search)
+                    }
                 }
+                .padding()
+                .background(Color.white)
+                .cornerRadius(10.0)
+                .padding(.horizontal)
                 
             }
         }

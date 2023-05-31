@@ -35,7 +35,19 @@ struct ContentView: View {
                     }
                     .padding()
                 }
+               
+                Text("Popular")
+                    .font(.custom("PlayfairDisplay-Bold", size: 24))
+                    .padding(.horizontal)
                 
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack {
+                        ForEach(0 ..< 4) { item in
+                            ProductCardView(image: Image("chair_1"))
+                        }
+                    }
+                    .padding()
+                }
             }
         }
         
@@ -126,5 +138,35 @@ struct CategoryView: View {
             }
         }
         .padding(.trailing)
+    }
+}
+
+struct ProductCardView: View {
+    let image: Image
+    var body: some View {
+        VStack {
+            image
+                .resizable()
+                .frame(width: 210, height: 200)
+                .cornerRadius(20.0)
+            Text("Swedish chair")
+                .font(.title3)
+                .fontWeight(.bold)
+            HStack(spacing: 2) {
+                ForEach(0 ..< 5) { item in
+                    Image("star")
+                }
+                
+                Spacer()
+                
+                Text("$1299")
+                    .font(.title3)
+                    .fontWeight(.bold)
+            }
+        }
+        .frame(width: 210)
+        .padding()
+        .background(Color.white)
+        .cornerRadius(20.0)
     }
 }

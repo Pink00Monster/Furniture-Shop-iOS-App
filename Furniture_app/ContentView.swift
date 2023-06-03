@@ -15,7 +15,7 @@ struct ContentView: View {
             ZStack {
                 Color("Bg")
                     .edgesIgnoringSafeArea(.all)
-                VStack {
+                ScrollView {
                     Image("chair_1")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
@@ -62,16 +62,90 @@ struct DescriptionView: View {
                 .lineSpacing(8.0)
                 .opacity(0.6)
             
-            HStack {
-                VStack {
+            HStack (alignment: .top) {
+                VStack (alignment: .leading) {
                     Text("Size")
                         .fontWeight(.semibold)
+                        .padding(.bottom, 4)
+                    Text("Height: 120cm")
+                        .opacity(0.6)
+                    Text("Width: 80cm")
+                        .opacity(0.6)
+                    Text("Diameter: 72cm")
+                        .opacity(0.6)
                 }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                
+                VStack (alignment: .leading) {
+                    Text("Treatment")
+                        .fontWeight(.semibold)
+                        .padding(.bottom, 4)
+                    
+                    Text("Jati Wood, Canvas, \nAmazing Love")
+                        .opacity(0.6)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
             }
+            .padding(.vertical)
+            
+            HStack (alignment: .bottom) {
+                VStack (alignment: .leading) {
+                    Text("Colors")
+                        .fontWeight(.semibold)
+                    
+                    HStack {
+                        ColorDotView(color: .white)
+                        ColorDotView(color: .black)
+                        ColorDotView(color: .purple)
+                    }
+                }
+                
+                Spacer()
+                
+                VStack (alignment: .leading) {
+                    Text("Quantity")
+                        .fontWeight(.semibold)
+                    
+                    HStack {
+                        Button(action: {}) {
+                            Image(systemName: "minus")
+                                .padding(.all, 8)
+                        }
+                        .frame(width: 30, height: 30)
+                        .overlay(RoundedRectangle(cornerRadius: 50.0).stroke())
+                        .foregroundColor(.black)
+                        
+                        Text("1")
+                            .font(.title2)
+                            .fontWeight(.semibold)
+                            .padding(.horizontal, 8)
+                        
+                        Button(action: {}) {
+                            Image(systemName: "plus")
+                                .padding(.all, 8)
+                        }
+                        .frame(width: 30, height: 30)
+                        .background(Color("Primary"))
+                        .clipShape(Circle())
+                        .foregroundColor(.white)
+                    }
+                }
+
+            }
+            
         }
         .padding()
         .padding(.top)
         .background(Color("Bg"))
         .cornerRadius(40.0)
+    }
+}
+
+struct ColorDotView: View {
+    let color: Color
+    var body: some View {
+        color
+            .frame(width: 24, height: 24)
+            .clipShape(Circle())
     }
 }

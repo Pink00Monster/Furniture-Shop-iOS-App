@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		836BF9F92A2790CC00BB373B /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836BF9F82A2790CC00BB373B /* HomeScreen.swift */; };
+		836BF9FB2A2B260600BB373B /* DetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836BF9FA2A2B260600BB373B /* DetailScreen.swift */; };
 		8804739725D8C14200F9A279 /* Furniture_appApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8804739625D8C14200F9A279 /* Furniture_appApp.swift */; };
 		8804739925D8C14200F9A279 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8804739825D8C14200F9A279 /* ContentView.swift */; };
 		8804739B25D8C14400F9A279 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8804739A25D8C14400F9A279 /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		836BF9F82A2790CC00BB373B /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		836BF9FA2A2B260600BB373B /* DetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreen.swift; sourceTree = "<group>"; };
 		8804739325D8C14200F9A279 /* Furniture_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Furniture_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8804739625D8C14200F9A279 /* Furniture_appApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Furniture_appApp.swift; sourceTree = "<group>"; };
 		8804739825D8C14200F9A279 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				836BF9F82A2790CC00BB373B /* HomeScreen.swift */,
+				836BF9FA2A2B260600BB373B /* DetailScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				836BF9FB2A2B260600BB373B /* DetailScreen.swift in Sources */,
 				8804739925D8C14200F9A279 /* ContentView.swift in Sources */,
 				8804739725D8C14200F9A279 /* Furniture_appApp.swift in Sources */,
 				836BF9F92A2790CC00BB373B /* HomeScreen.swift in Sources */,

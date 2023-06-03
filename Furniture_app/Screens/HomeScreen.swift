@@ -11,79 +11,81 @@ struct HomeScreen: View {
     @State private var selectedIndex: Int = 0
     private let categories = ["All", "Chair", "Sofa", "Lamp", "Kitchen", "Table"]
     var body: some View {
-        ZStack {
-            Color("Bg")
-                .edgesIgnoringSafeArea(.all)
-            
-            ScrollView {
-                VStack(alignment: .leading) {
-                    AppBarView()
-                    
-                    TagLineView()
-                        .padding()
-                    
-                    SearchAndScanView()
-                    
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack {
-                            ForEach(0 ..< categories.count, id: \.self) { i in
-                                CategoryView(isActive: i == selectedIndex, text: categories[i])
-                                    .onTapGesture {
-                                        selectedIndex = i
-                                    }
+        NavigationView {
+            ZStack {
+                Color("Bg")
+                    .edgesIgnoringSafeArea(.all)
+                
+                ScrollView {
+                    VStack(alignment: .leading) {
+                        AppBarView()
+                        
+                        TagLineView()
+                            .padding()
+                        
+                        SearchAndScanView()
+                        
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack {
+                                ForEach(0 ..< categories.count, id: \.self) { i in
+                                    CategoryView(isActive: i == selectedIndex, text: categories[i])
+                                        .onTapGesture {
+                                            selectedIndex = i
+                                        }
+                                }
                             }
+                            .padding()
                         }
-                        .padding()
-                    }
-                    
-                    Text("Popular")
-                        .font(.custom("PlayfairDisplay-Bold", size: 24))
-                        .padding(.horizontal)
-                    
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack {
-                            ForEach(0 ..< 4) { index in
-                                ProductCardView(image: Image("chair_\(index+1)"), size: 210)
+                        
+                        Text("Popular")
+                            .font(.custom("PlayfairDisplay-Bold", size: 24))
+                            .padding(.horizontal)
+                        
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack {
+                                ForEach(0 ..< 4) { index in
+                                    ProductCardView(image: Image("chair_\(index+1)"), size: 210)
+                                }
+                                .padding(.trailing)
                             }
-                            .padding(.trailing)
+                            .padding(.leading)
                         }
-                        .padding(.leading)
-                    }
-                    
-                    Text("Best")
-                        .font(.custom("PlayfairDisplay-Bold", size: 24))
-                        .padding(.horizontal)
-                        .padding(.top)
-                    
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack {
-                            ForEach(0 ..< 4) { index in
-                                ProductCardView(image: Image("chair_\(index+1)"), size: 180)
+                        
+                        Text("Best")
+                            .font(.custom("PlayfairDisplay-Bold", size: 24))
+                            .padding(.horizontal)
+                            .padding(.top)
+                        
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack {
+                                ForEach(0 ..< 4) { index in
+                                    ProductCardView(image: Image("chair_\(index+1)"), size: 180)
+                                }
+                                .padding(.trailing)
                             }
-                            .padding(.trailing)
+                            .padding(.leading)
                         }
-                        .padding(.leading)
+                        
                     }
+                }
+                
+                // Custom Button NavBar
+                
+                HStack {
+                    ButtonNavBarItem(image: Image("Home")) {}
+                    ButtonNavBarItem(image: Image("Home")) {}
+                    ButtonNavBarItem(image: Image("Home")) {}
+                    ButtonNavBarItem(image: Image("User")) {}
+                    
                     
                 }
+                .padding()
+                .background(Color.white)
+                .clipShape(Capsule())
+                .padding(.horizontal)
+                .shadow(color: Color.black.opacity(0.15), radius: 8, x: 2, y: 6)
+                .frame(maxHeight: .infinity, alignment: .bottom)
             }
-            
-            // Custom Button NavBar
-            
-            HStack {
-                ButtonNavBarItem(image: Image("Home")) {}
-                ButtonNavBarItem(image: Image("Home")) {}
-                ButtonNavBarItem(image: Image("Home")) {}
-                ButtonNavBarItem(image: Image("User")) {}
-                
-                
-            }
-            .padding()
-            .background(Color.white)
-            .clipShape(Capsule())
-            .padding(.horizontal)
-            .shadow(color: Color.black.opacity(0.15), radius: 8, x: 2, y: 6)
-            .frame(maxHeight: .infinity, alignment: .bottom)
         }
     }
 }
